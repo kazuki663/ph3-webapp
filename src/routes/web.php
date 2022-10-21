@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\WebappController;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Test;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +27,12 @@ Route::get('webapp', 'WebappController@index')->middleware('auth');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/test', function () {
+    Mail::to('test@example.com')->send(new Test);
+    return 'メール送信しました！';
+});
