@@ -8,11 +8,16 @@ use App\StudyLanguage;
 use App\StudyContent;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class WebappController extends Controller
 {
     public function index(Request $request)
     {
+        $user = Auth::user();
+        if(empty($user)){
+            return view('/register');
+        }
         //学習時間算出
         $today = \Carbon\Carbon::now()->format('Y-m-d');
         $this_month = \Carbon\Carbon::now()->format('Y-m');
@@ -99,6 +104,5 @@ class WebappController extends Controller
         $cont_datas = implode(',', $cont_data);
 
         return view('webapp.index', ['time' => $time, 'month' => $month, 'total' => $total, 'study_time' => $d, 'language_color' => $language_color, 'content_color' => $content_color, 'language_data' => $lang_datas, 'content_data' => $cont_datas]);
-
     }
 }

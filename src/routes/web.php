@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('webapp', 'WebappController@index');
+Route::get('webapp', 'WebappController@index')->middleware('auth');
 
 Auth::routes();
 
