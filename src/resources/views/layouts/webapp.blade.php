@@ -185,12 +185,11 @@
 
     </div>
 
-    @yield('script')
-
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    @yield('script')
     <script src="{{asset('/js/index.js')}}"></script>
 </body>
 </html>

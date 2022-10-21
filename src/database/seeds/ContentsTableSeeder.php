@@ -17,10 +17,14 @@ class ContentsTableSeeder extends Seeder
             'color' => '#0070b9',
         ];
 
+        DB::table('contents')->insert($param);
+
         $param = [
             'content' => 'ドットインストール',
             'color' => '#0042e5',
         ];
+
+        DB::table('contents')->insert($param);
 
         $param = [
             'content' => 'POSSE課題',
